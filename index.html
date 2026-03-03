@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Delivery Receipt</title>
+</head>
+<body>
+    <h1>Solar Delivery Receipt Application</h1>
+    <form id="receiptForm">
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" name="customerName" required><br><br>
+        <label for="deliveryDate">Delivery Date:</label>
+        <input type="date" id="deliveryDate" name="deliveryDate" required><br><br>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <div id="receiptOutput"></div>
+    <script>
+        document.getElementById('receiptForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const customerName = document.getElementById('customerName').value;
+            const deliveryDate = document.getElementById('deliveryDate').value;
+            const amount = document.getElementById('amount').value;
+            const receipt = `\nCustomer Name: ${customerName}\nDelivery Date: ${deliveryDate}\nAmount: ${amount}`;
+            document.getElementById('receiptOutput').innerText = receipt;
+        });
+    </script>
+</body>
+</html>
